@@ -10,13 +10,13 @@ pipeline {
             }
         }
         stage('cat README') {
-			when {
-				branch "fix-*"
-			}
+	    when {
+		branch "fix-*"
+	    }
             steps {
                 bat '''
-				  cat README
-				'''
+		cat README
+		'''
             }
         }
     }
