@@ -9,15 +9,5 @@ pipeline {
                 bat 'echo Hello World'
             }
         }
-        stage('cat README') {
-			when {
-				branch "fix-*"
-			}
-            steps {
-                bat '''
-				  cat README
-				'''
-            }
-        }
     }
 }
