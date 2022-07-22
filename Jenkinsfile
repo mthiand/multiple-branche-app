@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'node:16.13.1-alpine' }
+    }
     triggers {
       cron 'H 0 * * *'
     }
@@ -18,6 +20,11 @@ pipeline {
 		Type README
 		'''
             }
+        }
+    }
+    stage('Test') {
+        steps {
+            sh 'node --version'
         }
     }
 }
