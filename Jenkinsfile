@@ -1,11 +1,14 @@
 Jenkinsfile (Declarative Pipeline)
 pipeline {
     agent any
+    triggers {
+      cron 'H 0 * * *'
+    }
     stages {
-        stage('build') {
+        stage('Hello') {
             steps {
-                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                bat 'echo Hello World'
             }
         }
-	}
+    }
 }
