@@ -2,7 +2,11 @@ pipeline {
 	agent any
     stages {
         stage('build') {
-            steps {
+			agent {
+				docker { image 'node:16.13.1-alpine' }
+			}
+			steps {
+                bat 'node --version' 
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 checkout scm
                 bat 'make' 
