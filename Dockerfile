@@ -1,2 +1,2 @@
-FROM node:16.13.1-alpine
+FROM nginx:alpine
 LABEL maintainer = "mthiand@docker.com"
