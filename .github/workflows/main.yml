@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - 'main'
+    tags:
+      - 'v*'
 jobs:
   build:
     runs-on: ubuntu-latest	  
@@ -29,3 +31,6 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/multiple-branche-app:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/multiple-branche-app:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/multiple-branche-app:buildcache,mode=max
+
