@@ -1,10 +1,7 @@
 pipeline {
-	agent any
+    agent { dockerfile true }
     stages {
         stage('build') {
-			agent {
-				agent1 { image 'node:16.13.1-alpine' }
-			}
 			steps {
                 bat 'node --version' 
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
